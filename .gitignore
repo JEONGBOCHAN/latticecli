@@ -1,0 +1,68 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.whl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Claude Clone local data
+.claude-clone/
+
+# Documentation (private)
+docs/
+*.md
+!README.md
+
+# Temporary files
+nul
+*.js
