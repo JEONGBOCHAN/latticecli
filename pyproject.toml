@@ -36,6 +36,7 @@ dependencies = [
 
     # Config
     # tomllib은 Python 3.11+ 내장
+    "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
