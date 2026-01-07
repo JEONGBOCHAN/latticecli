@@ -3,6 +3,14 @@
 Defines tools based on LangChain StructuredTool.
 """
 
+from claude_clone.agent.tools.bash import (
+    bash_tool,
+    BashToolError,
+    CommandExecutionError,
+    CommandResult,
+    CommandTimeoutError,
+    run_command,
+)
 from claude_clone.agent.tools.edit import (
     edit_file,
     edit_tool,
@@ -47,4 +55,11 @@ __all__ = [
     "EditToolError",
     "StringNotFoundError",
     "MultipleMatchesError",
+    # Bash tool
+    "bash_tool",
+    "run_command",
+    "CommandResult",
+    "BashToolError",
+    "CommandTimeoutError",
+    "CommandExecutionError",
 ]
