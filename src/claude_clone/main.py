@@ -1,13 +1,26 @@
-"""Claude Clone - CLI 기반 AI 코딩 어시스턴트
+"""Claude Clone - CLI-based AI Coding Assistant
 
-진입점 모듈
+Entry point module for the application.
+
+Usage:
+    # Via console script (after installation)
+    $ claude-clone
+
+    # Via Python module
+    $ python -m claude_clone
 """
+
+from claude_clone.cli.app import run
 
 
 def main() -> None:
-    """CLI 진입점"""
-    print("Claude Clone v0.1.0")
-    print("Coming soon...")
+    """CLI entry point
+
+    This function is called by the console script defined in pyproject.toml:
+        [project.scripts]
+        claude-clone = "claude_clone.main:main"
+    """
+    run()
 
 
 if __name__ == "__main__":
