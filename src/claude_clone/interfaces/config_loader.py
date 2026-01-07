@@ -29,7 +29,7 @@ class Config(BaseModel):
         description="API key (environment variable recommended)",
     )
     model: str = Field(
-        default="gemini-3.0-flash-preview",
+        default="gemini-3-flash-preview",
         description="Model to use",
     )
 

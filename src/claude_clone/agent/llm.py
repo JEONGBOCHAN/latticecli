@@ -38,7 +38,7 @@ def create_llm(config: Config) -> ChatGoogleGenerativeAI:
         LLMCreationError: When provider is unsupported or creation fails
 
     Example:
-        >>> config = Config(api_key="key", provider="gemini", model="gemini-3.0-flash-preview")
+        >>> config = Config(api_key="key", provider="gemini", model="gemini-3-flash-preview")
         >>> llm = create_llm(config)
         >>> response = llm.invoke("Hello!")
     """

@@ -13,9 +13,41 @@ Usage:
     run_repl(config)
 """
 
+from typing import Any
+
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
 
 from claude_clone.agent.graph import create_agent
+
+
+def _extract_text_content(content: Any) -> str:
+    """Extract text content from AIMessage content
+
+    Handles different content formats:
+    - String: Returns as-is
+    - List of content blocks: Extracts and joins text from each block
+
+    Args:
+        content: AIMessage.content (str or list of dicts)
+
+    Returns:
+        Extracted text content as string
+    """
+    if isinstance(content, str):
+        return content
+
+    if isinstance(content, list):
+        texts = []
+        for block in content:
+            if isinstance(block, dict) and "text" in block:
+                texts.append(block["text"])
+            elif isinstance(block, str):
+                texts.append(block)
+        return "\n".join(texts)
+
+    return str(content)
+
+
 from claude_clone.agent.tools import read_tool
 from claude_clone.interfaces import Config
 from claude_clone.prompts import SYSTEM_PROMPT
@@ -82,7 +114,7 @@ def run_repl(config: Config) -> None:
                             print_tool_call(tool_call["name"], tool_call["args"])
                     # Print text content if any
                     if msg.content:
-                        print_response(str(msg.content))
+                        print_response(_extract_text_content(msg.content))
                 elif isinstance(msg, ToolMessage):
                     # Print tool result
                     print_tool_result(msg.name or "tool", str(msg.content))
@@ -138,6 +170,6 @@ def run_single_turn(config: Config, user_input: str) -> str:
     final_message = response_messages[-1]
 
     if isinstance(final_message, AIMessage) and final_message.content:
-        return str(final_message.content)
+        return _extract_text_content(final_message.content)
 
     return ""

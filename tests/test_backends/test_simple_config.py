@@ -21,7 +21,7 @@ class TestSimpleConfigLoader:
 
             assert config.api_key == "test-api-key"
             assert config.provider == "gemini"  # default
-            assert config.model == "gemini-3.0-flash-preview"  # default
+            assert config.model == "gemini-3-flash-preview"  # default
 
     def test_load_without_api_key_raises_error(self, tmp_path: Path) -> None:
         """Test that missing API key raises ConfigurationError"""

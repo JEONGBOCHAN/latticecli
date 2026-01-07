@@ -61,7 +61,7 @@ def create_agent(config: Config, tools: list[BaseTool] | None = None) -> Compile
         Compiled StateGraph ready to invoke
 
     Example:
-        >>> config = Config(api_key="key", provider="gemini", model="gemini-3.0-flash-preview")
+        >>> config = Config(api_key="key", provider="gemini", model="gemini-3-flash-preview")
         >>> agent = create_agent(config, tools=[read_tool])
         >>> result = agent.invoke({"messages": [HumanMessage(content="Read main.py")]})
         >>> print(result["messages"][-1].content)

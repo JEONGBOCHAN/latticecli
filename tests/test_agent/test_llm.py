@@ -30,7 +30,7 @@ class TestCreateLLM:
         config = Config(
             api_key=None,
             provider="gemini",
-            model="gemini-3.0-flash-preview",
+            model="gemini-3-flash-preview",
         )
 
         with pytest.raises(LLMCreationError) as exc_info:
@@ -49,14 +49,14 @@ class TestCreateLLM:
         config = Config(
             api_key="test-api-key",
             provider="gemini",
-            model="gemini-3.0-flash-preview",
+            model="gemini-3-flash-preview",
         )
 
         result = create_llm(config)
 
         # Verify ChatGoogleGenerativeAI was called with correct args
         mock_chat_class.assert_called_once_with(
-            model="gemini-3.0-flash-preview",
+            model="gemini-3-flash-preview",
             google_api_key="test-api-key",
         )
         assert result == mock_llm
@@ -69,7 +69,7 @@ class TestCreateLLM:
         config = Config(
             api_key="bad-key",
             provider="gemini",
-            model="gemini-3.0-flash-preview",
+            model="gemini-3-flash-preview",
         )
 
         with pytest.raises(LLMCreationError) as exc_info:

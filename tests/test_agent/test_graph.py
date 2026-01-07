@@ -30,7 +30,7 @@ class TestCreateAgent:
         return Config(
             api_key="test-api-key",
             provider="gemini",
-            model="gemini-3.0-flash-preview",
+            model="gemini-3-flash-preview",
         )
 
     @patch("claude_clone.agent.graph.create_llm")
