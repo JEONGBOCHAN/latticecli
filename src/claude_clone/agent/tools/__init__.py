@@ -18,6 +18,18 @@ from claude_clone.agent.tools.edit import (
     MultipleMatchesError,
     StringNotFoundError,
 )
+from claude_clone.agent.tools.glob import (
+    glob_files,
+    glob_tool,
+    GlobToolError,
+)
+from claude_clone.agent.tools.grep import (
+    grep_files,
+    grep_tool,
+    GrepMatch,
+    GrepToolError,
+    InvalidPatternError,
+)
 from claude_clone.agent.tools.read import (
     BinaryFileError,
     read_file,
@@ -62,4 +74,14 @@ __all__ = [
     "BashToolError",
     "CommandTimeoutError",
     "CommandExecutionError",
+    # Glob tool
+    "glob_tool",
+    "glob_files",
+    "GlobToolError",
+    # Grep tool
+    "grep_tool",
+    "grep_files",
+    "GrepMatch",
+    "GrepToolError",
+    "InvalidPatternError",
 ]
